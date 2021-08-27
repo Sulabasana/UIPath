@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1104.8,2183.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1104.8,1900</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -75,7 +75,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="493.6,2118.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="476.8,1835.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strACMEPassword" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_WorkItems" />
@@ -85,6 +85,7 @@
       <Variable x:TypeArguments="x:String" Name="strClient" />
       <Variable x:TypeArguments="x:String" Name="strClientName" />
       <Variable x:TypeArguments="x:String" Name="strClientCountry" />
+      <Variable x:TypeArguments="x:String" Name="strGeneratedHashCode" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -92,35 +93,31 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="452,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,440" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="435.2,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="435.2,115.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAar5F1nJa+UuzW2FxX+DyNAAAAAACAAAAAAADZgAAwAAAABAAAAANUfx+lQio9AeiaofjSshyAAAAAASAAACgAAAAEAAAAGaXnSRaZxyzbflYM2vzHPsQAAAAYTr2kqGzvFXg4d018TJuExQAAAA3QYrjlmOC3x8k+Qn46bWJx/Y+WA==" Result="[strACMEPassword]" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_Login workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_Login.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Username">piotr.swieboda@onet.eu</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Password">[strACMEPassword]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_NavigateToWorkItems workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_NavigateToWorkItems.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_WID">
+          <Literal x:TypeArguments="x:String">73600115</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
       <ui:CommentOut.Body>
-        <Sequence sap:VirtualizedContainerService.HintSize="375.2,361.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="333.6,115.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAar5F1nJa+UuzW2FxX+DyNAAAAAACAAAAAAADZgAAwAAAABAAAAANUfx+lQio9AeiaofjSshyAAAAAASAAACgAAAAEAAAAGaXnSRaZxyzbflYM2vzHPsQAAAAYTr2kqGzvFXg4d018TJuExQAAAA3QYrjlmOC3x8k+Qn46bWJx/Y+WA==" Result="[strACMEPassword]" />
-          </Sequence>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_Login workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_Login.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Username">piotr.swieboda@onet.eu</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Password">[strACMEPassword]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,796.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416.8,718.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416.8,718.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -148,37 +145,68 @@
           </Sequence>
         </Sequence>
       </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="452,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_ExtractWorkItemDetails.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_ExtractWorkItemDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SearchField">
-          <Literal x:TypeArguments="x:String">Client ID:</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_FoundValue">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strClientId" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SearchField">Client ID:</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_FoundValue">[strClientId]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="452,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_ExtractWorkItemDetails.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_ExtractWorkItemDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SearchField">
-          <Literal x:TypeArguments="x:String">Client Name:</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_FoundValue">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strClientName" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SearchField">Client Name:</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_FoundValue">[strClientName]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="452,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_ExtractWorkItemDetails.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_ExtractWorkItemDetails workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_ExtractWorkItemDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SearchField">
-          <Literal x:TypeArguments="x:String">Client Country:</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_FoundValue">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strClientCountry" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SearchField">Client Country:</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_FoundValue">[strClientCountry]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="452,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Client Id is &quot; + strClientId +&quot; Client Name is &quot; + strClientName + &quot; Client Country is &quot; + strClientCountry]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,231.2" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,152.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Client Id is &quot; + strClientId +&quot; Client Name is &quot; + strClientName + &quot; Client Country is &quot; + strClientCountry]" />
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SHA1_GenerateHash workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="SHA1\SHA1_GenerateHash.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SHA1URL">
+          <Literal x:TypeArguments="x:String">http://www.sha1-online.com</Literal>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_GeneratedHashCode">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strGeneratedHashCode" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CustomerInfo">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strClientId +&quot; -&quot; + strClientName + &quot;-&quot; + strClientCountry" />
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACME_UpdateWorkItem workflow" sap:VirtualizedContainerService.HintSize="435.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ACME\ACME_UpdateWorkItem.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
+          <Literal x:TypeArguments="x:String">C:\Temp\Test.xlsx</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_GeneratedHashKey">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strGeneratedHashCode" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_WorkItemStatus">
+          <Literal x:TypeArguments="x:String">Completed</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>

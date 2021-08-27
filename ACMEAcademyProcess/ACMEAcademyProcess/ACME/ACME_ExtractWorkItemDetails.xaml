@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1104.8,2172.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1104.8,2304</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_NavigateToWorkItems_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -71,10 +71,9 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Navigate to Work Items&#xA;" DisplayName="ACME_NavigateToWorkItems" sap:VirtualizedContainerService.HintSize="718.4,2108" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Navigate to Work Items&#xA;" DisplayName="ACME_NavigateToWorkItems" sap:VirtualizedContainerService.HintSize="718.4,2239.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="ACME_Extract Work Item Detail" Name="strComponentName" />
       <Variable x:TypeArguments="ui:GenericValue" Name="strExtractedText" />
@@ -94,19 +93,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="676.8,1580.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="Screen Scraping" sap:VirtualizedContainerService.HintSize="676.8,1712" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap:VirtualizedContainerService.HintSize="635.2,1488" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b3f0f845dbfaf83a98e9322159ac4060" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap:VirtualizedContainerService.HintSize="635.2,1619.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="b3f0f845dbfaf83a98e9322159ac4060" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="601.6,1300.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="601.6,1472" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -173,7 +172,18 @@
                   </ActivityAction>
                 </ui:ForEach.Body>
               </ui:ForEach>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Return value is &quot; + out_FoundValue]" />
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="560,231.2" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,152.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Return value is &quot; + out_FoundValue]" />
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
             </Sequence>
           </ActivityAction>
         </ui:BrowserScope.Body>

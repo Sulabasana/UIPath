@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ACME_Login" this:ACME_Login.in_Username="piotr.swieboda@onet.eu" this:ACME_Login.in_Password="Frtfrt45" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ACME_Login" this:ACME_Login.in_Username="piotr.swieboda@onet.eu" this:ACME_Login.in_Password="Frtfrt45" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Username" Type="InArgument(x:String)" />
     <x:Property Name="in_Password" Type="InArgument(x:String)" />
@@ -6,10 +6,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1104.8,1040.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1104.8,1480</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ACME_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="56">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -38,10 +38,11 @@
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>UiPath.Activities.Contracts</x:String>
       <x:String>System.Security</x:String>
-    </sco:Collection>
+      <x:String>System.Runtime.Serialization</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,21 +71,24 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ACME_Login" sap:VirtualizedContainerService.HintSize="533.6,976" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ACME_Login" sap:VirtualizedContainerService.HintSize="660.8,1415.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Web" sap:VirtualizedContainerService.HintSize="492,883.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="Web" sap:VirtualizedContainerService.HintSize="619.2,1322.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="boolScreenFound" />
+      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap:VirtualizedContainerService.HintSize="450.4,790.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="74f2e8fa2b9b29e0f2b585f46f14b040" Selector="&lt;html title='ACME System 1 - Log In' /&gt;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap:VirtualizedContainerService.HintSize="577.6,790.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="74f2e8fa2b9b29e0f2b585f46f14b040" Selector="&lt;html title='ACME System 1 - Log In' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -140,6 +144,23 @@
           </ActivityAction>
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
+      <ui:UiElementExists DisplayName="Element Exists 'BODY'" Exists="[boolScreenFound]" sap:VirtualizedContainerService.HintSize="577.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b4c85aa-c4fd-4439-b419-850d3d23bd74" InformativeScreenshot="05df9b9a989550c72e8865e3c9fecbb4" Selector="&lt;html title='ACME System 1 - Dashboard' /&gt;&lt;webctrl tag='BODY' /&gt;" TimeoutMS="10000">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[boolScreenFound = False]" sap:VirtualizedContainerService.HintSize="577.6,252" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Throw Exception="[New Exception(&quot;Screen was not found succesfully&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </If.Then>
+        <If.Else>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Screen found succesfully&quot;]" />
+        </If.Else>
+      </If>
     </Sequence>
   </Sequence>
 </Activity>
