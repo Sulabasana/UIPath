@@ -15,6 +15,7 @@
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
+    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
